@@ -44,29 +44,31 @@ function Card() {
   return (
     <div className='flex flex-col w-full'>
         {inputFields.map((inputField, index) => (
-        <div className='flex mb-3' key={index}>
-            <textarea
-                ref={textAreaRefs[index]}
-                className="rounded-s-md scrollbar-hide resize-none w-full p-2 border-none outline-none"  
-                placeholder='Enter a title for this card' 
-                value={inputField.value}
-                onChange={(e) => {handleInputChange(index, e); handleTextAreaChange(index)}}
-                onKeyDown={(e) => handleKeyPress(index,e)}
-                readOnly={!inputField.editable}
-            />
-            <button 
+
+          //Individual Card Text area
+          <div className='flex mb-3' key={index}>
+              <textarea
+                  ref={textAreaRefs[index]}
+                  className="rounded-s-md scrollbar-hide resize-none w-full p-2 border-none outline-none"  
+                  placeholder='Enter a title for this card' 
+                  value={inputField.value}
+                  onChange={(e) => {handleInputChange(index, e); handleTextAreaChange(index)}}
+                  onKeyDown={(e) => handleKeyPress(index,e)}
+                  readOnly={!inputField.editable}
+              />
+              <button 
                 className="bg-white rounded-e-md p-1 hover:text-red-500" 
                 onClick={() => handleEditFields(index)}
-            >
-            <EditOutlinedIcon fontSize='small' className='mr-1' />
-            </button>
-
-            {/* <Card /> */}
-        </div>
+              >
+                <EditOutlinedIcon fontSize='small' className='mr-1' />
+              </button>
+          </div>
         ))}
+
+        {/* Add New Card Button */}
         <button
-            onClick={handleAddFields} 
-            className='h-10 mx-auto w-full rounded-md p-2 flex justify-start items-center bg-white'
+          onClick={handleAddFields} 
+          className='h-10 mx-auto w-full rounded-md p-2 flex justify-start items-center bg-white'
         >
             <AddIcon fontSize='small' />
             <p className='text-md ml-1'>Add a card</p>

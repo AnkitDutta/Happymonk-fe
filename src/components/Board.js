@@ -3,11 +3,6 @@ import List2 from './List2'
 import { DragDropContext } from 'react-beautiful-dnd';
 
 function Board() {
-  const [newList, setNewList] = useState([]);
-
-  // onDragEnd = result => {
-  //   // TODO:
-  // }
 
   return (
     <div className='flex flex-row h-screen bg-sky-700'>
